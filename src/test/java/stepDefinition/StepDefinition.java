@@ -42,7 +42,8 @@ public class StepDefinition  extends Utils {
 			response = req.when().post(apiResources.getResource());
 		else if(method.equalsIgnoreCase("Get"))
 			response = req.when().get(apiResources.getResource());
-		//.then().assertThat().spec(respnonseSpecificationBuild()).extract().response();
+		else if (method.equalsIgnoreCase("Put"))
+			response = req.when().put(apiResources.getResource());
 		
 	}
 	@Then("the API call got success with status code {int}")
@@ -64,6 +65,16 @@ public class StepDefinition  extends Utils {
 		String actualName = getJsonPath(response,"name");
 		Assert.assertEquals(actualName, expectedName);
 	}
+	@Given("GetPlace payload")
+	public void getPlace_payload()throws IOException {
+		req= given().spec(requestSpecificationBuild()).queryParam("place_id", placeId);
+	}
+	
+	@Given("Update Place Payload with {string}")
+	public void update_place_payload_with(String updatedAddress) throws IOException {
+		req = given().spec(requestSpecificationBuild()).body(data.updatePlacePayloadbuild(updatedAddress, placeId));
+	}
+	
 	@Given("DeletePlace payload")
 	public void deletePlace_payload() throws IOException{
 		req = given().spec(requestSpecificationBuild()).body(data.deletePlacePlayloanduild(placeId));

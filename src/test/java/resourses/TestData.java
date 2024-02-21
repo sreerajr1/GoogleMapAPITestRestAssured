@@ -41,5 +41,13 @@ public class TestData {
 				+ "}\r\n"
 				+ "";
 	}
-
+	
+	public String updatePlacePayloadbuild(String address, String placeId) {
+	 
+	 	return "{\r\n"
+	 			+ "\"place_id\":\""+ placeId+"\",\r\n"
+	 			+ "\"address\":\""+ address +"\",\r\n"
+	 			+ "\"key\":\"qaclick123\"\r\n"
+	 			+ "}";
+	}
 }
