@@ -4,6 +4,6 @@ Automated scripts for the following API requests
  > AddPlace
  > DeletePlace
  
-Framework : Cucumber
-Tool      : Rest Assured
-Language  : Java
+| Framework : Cucumber
+| Tool      : Rest Assured
+| Language  : Java
